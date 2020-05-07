@@ -1,0 +1,63 @@
+#!/bin/bash
+
+set -x
+
+set -eo pipefail
+
+echo "copying notebooks to backup dir (/opt/app-root/backup)"
+rm -rf /opt/app-root/backup
+mkdir /opt/app-root/backup
+cp -Rf /tmp/src/notebooks /opt/app-root/backup/
+ls /tmp/scripts
+
+# rename the original s2i scripts from thoth-station/s2i-minimal-notebook
+mv /opt/app-root/builder/run /opt/app-root/builder/run.original
+mv /opt/app-root/builder/assemble /opt/app-root/builder/assemble.original
+
+# copy our new scripts, which will call the original scripts after copying notebooks
+cp /tmp/scripts/run /opt/app-root/builder/run
+cp /tmp/scripts/assemble /opt/app-root/builder/assemble
+
+# Execute original assemble script.
+/opt/app-root/builder/assemble.original
+
+# Activate ipywidgets extension.
+
+jupyter nbextension enable --py widgetsnbextension --sys-prefix
+
+# Also activate ipywidgets/bokeh extension for JupyterLab.
+
+jupyter labextension install @jupyter-widgets/jupyterlab-manager@2.0 --no-build
+jupyter labextension install @bokeh/jupyter_bokeh --no-build
+
+jupyter lab build
+
+# Enable bokeh extension also for single notebooks
+
+jupyter nbextension enable  --sys-prefix --py jupyter_bokeh
+
+# Install facets which does not have a pip package.
+
+cd /tmp
+
+git clone https://github.com/PAIR-code/facets.git
+
+cd facets
+
+jupyter nbextension install facets-dist/ --sys-prefix
+
+cd $HOME
+
+rm -rf /tmp/facets
+
+# Import matplotlib the first time to build the font cache.
+
+MPLBACKEND=Agg python -c "import matplotlib.pyplot"
+
+# Make sure the S2I source directory is empty as we will use the image
+# produced to run further S2I builds
+(shopt -s dotglob ; rm -rf ${APP_ROOT}/src/*)
+
+# Fix up permissions.
+
+fix-permissions /opt/app-root

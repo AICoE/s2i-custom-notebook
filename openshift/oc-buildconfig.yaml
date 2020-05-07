@@ -1,0 +1,84 @@
+---
+apiVersion: v1
+kind: Template
+labels:
+  application: s2i-custom-notebook
+metadata:
+  name: s2i-custom-notebook-image-bc
+
+parameters:
+  - description: Application name
+    value: 's2i-custom-notebook'
+    name: APPLICATION_NAME
+    required: true
+  - name: GIT_URI
+    value: https://github.com/4n4nd/s2i-custom-notebook.git
+    required: true
+    description: Name of the Python application file to be run during the job.
+  - name: LIMIT_CPU
+    value: "1"
+    description: Limit number of CPUs allocated to the container
+  - name: LIMIT_MEM
+    value: "2G"
+    description: Limit amount of memory allocated to the container
+  # - description: "Thoth Environment to use for retrieving advices."
+  #   displayName: "Environment"
+  #   name: "THOTH_HOST"
+  #   required: true
+  #   value: "khemenu.thoth-station.ninja"
+  # - description: "Thamos enable debug mode."
+  #   name: "THAMOS_DEBUG"
+  #   required: true
+  #   value: "0"
+  # - description: "Always use the recommended stack by Thoth."
+  #   name: "THOTH_ADVISE"
+  #   required: true
+  #   value: "1"
+  # - description: "Fallback to the Pipfile.lock present in the repository."
+  #   name: "THOTH_ERROR_FALLBACK"
+  #   required: true
+  #   value: "1"
+
+objects:
+  - apiVersion: v1
+    kind: ImageStream
+    metadata:
+      name: ${APPLICATION_NAME}
+      labels:
+        app: ${APPLICATION_NAME}
+    spec:
+      dockerImageRepository: ${APPLICATION_NAME}
+      tags:
+        - name: latest
+      lookupPolicy:
+        local: true
+
+  - apiVersion: v1
+    kind: BuildConfig
+    metadata:
+      name: ${APPLICATION_NAME}
+      labels:
+        app: ${APPLICATION_NAME}
+    spec:
+      resources:
+        limits:
+          memory: 4Gi
+          cpu: "2"
+      output:
+        to:
+          kind: ImageStreamTag
+          name: ${APPLICATION_NAME}:latest
+      source:
+        git:
+          uri: ${GIT_URI}
+        type: Git
+      strategy:
+        type: Source
+        sourceStrategy:
+          from:
+            kind: "DockerImage"
+            name: "quay.io/thoth-station/s2i-minimal-notebook:latest"
+      triggers:
+        - imageChange: {}
+          type: ImageChange
+        - type: ConfigChange
