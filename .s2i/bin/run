@@ -10,17 +10,18 @@ cp -Rf /opt/app-root/backup/notebooks/* $notebooks_location
 
 # Generate README.md
 echo "generating README.md"
-readme_location=$notebooks_location/README.md
-touch $readme_location
-echo "# $GIT_REPO_NAME" > $readme_location
-echo "#### Version: $GIT_TAG" >> $readme_location
-echo "#### Author: $GIT_TAG_AUTHOR" >> $readme_location
-echo "" >> $readme_location
-echo "$GIT_REPO_DESC <br>" >> $readme_location
-echo "" >> $readme_location
-echo "### Source: <br>" >> $readme_location
-echo "This notebook image has been created from notebooks available at: " >> $readme_location
-echo "[$GIT_TAG_COMMIT_SHA](${GIT_REPO_URL:0:-4}/tree/$GIT_TAG_COMMIT_SHA/notebooks)" >> $readme_location
+cat <<EOF > $notebooks_location/README.md
+# "$GIT_REPO_NAME"
+
+#### Version: "$GIT_TAG"
+#### Author: "$GIT_TAG_AUTHOR"
+
+"$GIT_REPO_DESC"<br>
+
+### Source: <br>
+This notebook image has been created from notebooks available at:
+[$GIT_TAG_COMMIT_SHA](${GIT_REPO_URL:0:-4}/tree/$GIT_TAG_COMMIT_SHA/notebooks)
+EOF
 
 
 # Execute the run script from the customised builder.
