@@ -1,11 +1,27 @@
 #!/bin/bash
-
 set -eo pipefail
 
 # Copy over the required notebooks and data
 echo "copying notebooks"
 dir_name=$GIT_REPO_NAME-$(date +"%F-%H-%M")
 mkdir /opt/app-root/src/$dir_name
-cp -Rf /opt/app-root/backup/notebooks/* /opt/app-root/src/$dir_name
+notebooks_location=/opt/app-root/src/$dir_name/
+cp -Rf /opt/app-root/backup/notebooks/* $notebooks_location
+
+# Generate README.md
+echo "generating README.md"
+readme_location=$notebooks_location/README.md
+touch $readme_location
+echo "# $GIT_REPO_NAME" > $readme_location
+echo "#### Version: $GIT_TAG" >> $readme_location
+echo "#### Author: $GIT_TAG_AUTHOR" >> $readme_location
+echo "" >> $readme_location
+echo "$GIT_REPO_DESC <br>" >> $readme_location
+echo "" >> $readme_location
+echo "### Source: <br>" >> $readme_location
+echo "This notebook image has been created from notebooks available at: " >> $readme_location
+echo "[$GIT_TAG_COMMIT_SHA](${GIT_REPO_URL:0:-4}/tree/$GIT_TAG_COMMIT_SHA/notebooks)" >> $readme_location
+
+
 # Execute the run script from the customised builder.
 exec /opt/app-root/builder/run.original "$@"
