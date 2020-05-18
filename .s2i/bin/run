@@ -4,7 +4,7 @@ set -eo pipefail
 
 # Copy over the required notebooks and data
 echo "copying notebooks"
-dir_name=notebooks-$(date +"%F-%H-%M")
+dir_name=$GIT_REPO_NAME-$(date +"%F-%H-%M")
 mkdir /opt/app-root/src/$dir_name
 cp -Rf /opt/app-root/backup/notebooks/* /opt/app-root/src/$dir_name
 # Execute the run script from the customised builder.
