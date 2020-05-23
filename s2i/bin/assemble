@@ -8,15 +8,6 @@ echo "copying notebooks to backup dir (/opt/app-root/backup)"
 rm -rf /opt/app-root/backup
 mkdir /opt/app-root/backup
 cp -Rf /tmp/src/notebooks /opt/app-root/backup/
-ls /tmp/scripts
-
-# rename the original s2i scripts from thoth-station/s2i-minimal-notebook
-mv /opt/app-root/builder/run /opt/app-root/builder/run.original
-mv /opt/app-root/builder/assemble /opt/app-root/builder/assemble.original
-
-# copy our new scripts, which will call the original scripts after copying notebooks
-cp /tmp/scripts/run /opt/app-root/builder/run
-cp /tmp/scripts/assemble /opt/app-root/builder/assemble
 
 # Execute original assemble script.
 /opt/app-root/builder/assemble.original
@@ -26,5 +17,4 @@ cp /tmp/scripts/assemble /opt/app-root/builder/assemble
 (shopt -s dotglob ; rm -rf ${APP_ROOT}/src/*)
 
 # Fix up permissions.
-
 fix-permissions /opt/app-root
