@@ -1,0 +1,17 @@
+---
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  labels:
+    opendatahub.io/notebook-image: "true" # <-- setting it true makes it visible to ODH/JupyterHub
+  name: custom-notebook # <-- Update the ImageStream name here
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+  - from:
+      kind: DockerImage
+      name: quay.io/thoth-station/s2i-custom-notebook:latest # <-- Change to your container Image with tag
+    importPolicy:
+      scheduled: true
+    name: "latest"
