@@ -7,7 +7,7 @@ set -eo pipefail
 echo "copying notebooks to backup dir (/opt/app-root/backup)"
 rm -rf /opt/app-root/backup
 mkdir /opt/app-root/backup
-cp -Rf /tmp/src/notebooks /opt/app-root/backup/
+cp -Rf /tmp/src/* /opt/app-root/backup/
 
 # Execute original assemble script.
 /opt/app-root/builder/assemble.original
