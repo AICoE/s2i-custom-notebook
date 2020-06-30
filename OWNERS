@@ -1,6 +1,9 @@
 # See the OWNERS docs at https://go.k8s.io/owners
 
 approvers:
-  - durandom
   - 4n4nd
   - harshad16
+reviewers:
+  - tumido
+  - pacospace
+  - durandom
