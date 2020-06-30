@@ -1,0 +1,32 @@
+host: 'khemenu.thoth-station.ninja'
+tls_verify: false
+requirements_format: pipenv
+
+runtime_environments:
+  - name: 'ubi:8'
+    operating_system:
+      name: 'ubi'
+      version: '8'
+    python_version: '3.6'
+    recommendation_type: STABLE
+
+managers:
+  - name: thoth-advise
+    configuration:
+      labels: [bot, kebechet]
+  - name: thoth-provenance
+    configuration:
+      labels: [bot, kebechet]
+  - name: update
+    configuration:
+      labels: [bot]
+  - name: info
+  - name: version
+    configuration:
+      maintainers:
+        - 4n4nd
+        - harshad16
+      assignees:
+        - sesheta
+      labels: [bot]
+      changelog_file: true
