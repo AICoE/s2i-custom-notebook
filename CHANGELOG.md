@@ -8,3 +8,7 @@
 * Create OWNERS
 * Add instructions for internal Datahub
 * include all the information into the image
+
+## Release 0.2.1 (2020-07-02T14:55:26)
+* Copy hidden files as well (#26)
+* Update custom image to datahub doc (#21)
