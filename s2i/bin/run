@@ -10,7 +10,7 @@ repo_name=${GIT_REPO_NAME:-notebooks}
 dir_name=$repo_name-$(date +"%F-%H-%M")
 mkdir /opt/app-root/src/$dir_name
 notebooks_location=/opt/app-root/src/$dir_name/
-cp -Rf /opt/app-root/backup/* $notebooks_location
+(shopt -s dotglob ; cp -Rf /opt/app-root/backup/* $notebooks_location)
 
 # Generate README.md
 if [[ -z $GIT_REPO_URL ]];
