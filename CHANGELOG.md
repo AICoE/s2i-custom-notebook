@@ -12,3 +12,6 @@
 ## Release 0.2.1 (2020-07-02T14:55:26)
 * Copy hidden files as well (#26)
 * Update custom image to datahub doc (#21)
+
+## Release 0.2.2 (2020-07-23T15:47:18)
+* :neckbeard: s2i-minimal-notebook update with micropipenv 0.5.0
