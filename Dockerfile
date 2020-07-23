@@ -1,5 +1,5 @@
 # s2i-custom-notebook
-FROM quay.io/thoth-station/s2i-minimal-notebook:master
+FROM quay.io/thoth-station/s2i-minimal-notebook:v0.0.4
 
 
 MAINTAINER Anand Sanmukhani <asanmukh@redhat.com>
