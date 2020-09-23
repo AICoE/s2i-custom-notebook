@@ -14,6 +14,9 @@ Image Template to build custom notebook images for JupyterHub.
   You can build the image locally using s2i, by executing the following command
   in the root of your repository. <br>
     `s2i build . quay.io/thoth-station/s2i-custom-notebook:latest MY-CUSTOM-IMAGE:latest`
+  
+  You can also build the image directly using your repository url. <br>
+    `s2i build my.repo.url.git quay.io/thoth-station/s2i-custom-notebook:latest MY-CUSTOM-IMAGE:latest`
 
 You might need to update your deployment of JupyterHub for the newly built/imported image to
 be available for use.
