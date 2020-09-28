@@ -11,16 +11,44 @@ Image Template to build custom notebook images for JupyterHub.
 ## How to build the image
 
 ### Locally
-  You can build the image locally using s2i, by executing the following command
-  in the root of your repository. <br>
-    `s2i build . quay.io/thoth-station/s2i-custom-notebook:latest MY-CUSTOM-IMAGE:latest`
+
+#### Prerequisites
+
+* **s2i**: We assume the majority of users will be using linux and recommend using the the instructions
+[here](https://github.com/openshift/source-to-image#for-linux) to install s2i if needed.
+
+* **Docker**: If you are using Fedora please use these [instructions](https://docs.docker.com/engine/install/fedora/)
+to install docker. If you are on RHEL8 you can run into issues with docker, please follow the additional documentation
+that can be found [here](docs/RHEL8_docker_install.md).
+
+#### Build
+
+You can build the image locally using s2i, by executing the following command in the root of your repository. <br>
+````
+$ s2i build . quay.io/thoth-station/s2i-custom-notebook:latest MY-CUSTOM-IMAGE:latest
+````
+You can also build the image directly using your repository url. <br>
+```
+s2i build my.repo.url.git quay.io/thoth-station/s2i-custom-notebook:latest MY-CUSTOM-IMAGE:latest
+```
+
+Be sure to replace `MY-CUSTOM-IMAGE` above with the name you intend to use for your image.
 
 You might need to update your deployment of JupyterHub for the newly built/imported image to
 be available for use.
 
 # Running the image Locally
+
 After building the image, you can run it locally using the following command: <br>
-`podman run -p 8080:8080 MY-CUSTOM-IMAGE:latest start-singleuser.sh --ip="0.0.0.0" --port=8080`
+```
+$ docker run -p 8080:8080 MY-CUSTOM-IMAGE:latest start-singleuser.sh --ip="0.0.0.0" --port=8080
+```
+If you prefer to use [podman](https://podman.io/), you can using the following command:
+```
+$ podman run -p 8080:8080 docker-daemon:MY-CUSTOM-IMAGE:latest start-singleuser.sh --ip="0.0.0.0" --port=8080
+```
+Since the s2i notebook builder relies on docker, if using podman, make sure to prepend your image name with
+`docker-daemon:` so that podman checks the correct local registry.
 
 ## How to add the image to Open Data Hub/JupyterHub
 
