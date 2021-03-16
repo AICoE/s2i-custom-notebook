@@ -15,3 +15,9 @@
 
 ## Release 0.2.2 (2020-07-23T15:47:18)
 * :neckbeard: s2i-minimal-notebook update with micropipenv 0.5.0
+
+## Release 0.2.3 (2021-03-16T18:04:58)
+### Features
+* update base image
+* update README and added supplementary doc
+* :truck: include aicoe-ci configuration file
