@@ -4,6 +4,7 @@ kind: ImageStream
 metadata:
   labels:
     opendatahub.io/notebook-image: "true" # <-- setting it true makes it visible to ODH/JupyterHub
+    opendatahub.io/notebook-image-name: "My Notebook Image with Python 3.6"
   name: custom-notebook # <-- Update the ImageStream name here
 spec:
   lookupPolicy:
