@@ -1,9 +1,27 @@
 check:
-  - thoth-precommit
-  - thoth-build
-build:
-  build-stratergy: Dockerfile
-  registry: quay.io
-  registry-org: thoth-station
-  registry-project: s2i-custom-notebook
-  registry-secret: thoth-station-thoth-pusher-secret
+  - overlays-build
+overlays_dir: overlays
+overlays:
+  - name: python36
+    build:
+      build-stratergy: Dockerfile
+      registry: quay.io
+      registry-org: thoth-station
+      registry-project: s2i-custom-notebook
+      registry-secret: thoth-station-thoth-pusher-secret
+
+  - name: python38
+    build:
+      build-stratergy: Dockerfile
+      registry: quay.io
+      registry-org: thoth-station
+      registry-project: s2i-custom-py38-notebook
+      registry-secret: thoth-station-thoth-pusher-secret
+
+  - name: elyra
+    build:
+      build-stratergy: Dockerfile
+      registry: quay.io
+      registry-org: thoth-station
+      registry-project: s2i-elyra-custom-notebook
+      registry-secret: thoth-station-thoth-pusher-secret

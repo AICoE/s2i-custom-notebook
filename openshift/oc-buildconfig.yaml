@@ -12,7 +12,7 @@ parameters:
     name: APPLICATION_NAME
     required: true
   - name: GIT_URI
-    value: https://github.com/4n4nd/s2i-custom-notebook.git
+    value: https://github.com/AICoE/s2i-custom-notebook.git
     required: true
     description: Name of the Python application file to be run during the job.
   - name: LIMIT_CPU
@@ -74,7 +74,8 @@ objects:
         type: Git
       strategy:
         type: Source
-        sourceStrategy:
+        dockerStrategy:
+          dockerfilePath: overlays/python36/Dockerfile
           from:
             kind: "DockerImage"
             name: "quay.io/thoth-station/s2i-minimal-notebook:latest"
