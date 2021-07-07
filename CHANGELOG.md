@@ -21,3 +21,8 @@
 * update base image
 * update README and added supplementary doc
 * :truck: include aicoe-ci configuration file
+
+## Release 0.3.0 (2021-07-07T16:31:56)
+### Features
+* :cloud: stop auto updates till overlays feature is enabled
+* :cloud: setup repository to build multiple images
