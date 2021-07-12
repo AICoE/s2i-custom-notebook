@@ -1,5 +1,5 @@
 # s2i-elyra-custom-notebook
-FROM quay.io/thoth-station/s2i-lab-elyra:v0.0.9
+FROM quay.io/thoth-station/s2i-lab-elyra:v0.0.10
 MAINTAINER Anand Sanmukhani <asanmukh@redhat.com>
 LABEL io.k8s.description="Custom JupyterHub Notebook Builder Image" \
       io.openshift.s2i.scripts-url=image:///opt/app-root/builder \
