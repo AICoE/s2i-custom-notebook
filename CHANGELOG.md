@@ -26,3 +26,7 @@
 ### Features
 * :cloud: stop auto updates till overlays feature is enabled
 * :cloud: setup repository to build multiple images
+
+## Release 0.3.1 (2021-07-14T12:34:29)
+### Features
+* Bump up base images for newer features (#46)
