@@ -30,3 +30,7 @@
 ## Release 0.3.1 (2021-07-14T12:34:29)
 ### Features
 * Bump up base images for newer features (#46)
+
+## Release 0.3.2 (2021-08-16T07:11:25)
+### Features
+* :ship: Bump up base images with the latest versions (#50)
