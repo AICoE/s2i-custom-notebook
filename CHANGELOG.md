@@ -1,4 +1,8 @@
 
+## Release 0.3.3 (2021-09-01T18:58:12)
+### Improvements
+* :arrow_up: upgrade the base image to have jupyterlab-requirements upgrade
+
 ## Release 0.2.0 (2020-06-30T16:17:12)
 * Add version.py (#22)
 * CODEOWNERS is replaced by OWNERS file
