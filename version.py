@@ -17,4 +17,4 @@
 """This file carries the version and title of the si-bandit project."""
 
 __title__ = "s2i-custom-notebook"
-__version__ = "0.3.2"
+__version__ = "0.3.3"
