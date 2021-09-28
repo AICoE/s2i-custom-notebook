@@ -11,6 +11,26 @@ ENV \
     # Path to be used in other layers to place s2i scripts into
     STI_SCRIPTS_PATH=/opt/app-root/builder
 
+USER root
+
+# Trust the Red Hat IT Root CA 
+RUN curl -o /etc/pki/ca-trust/source/anchors/RH-IT-Root-CA.crt --fail -L \
+         https://password.corp.redhat.com/RH-IT-Root-CA.crt \
+ && update-ca-trust extract
+ 
+RUN dnf install -y \
+    # runtime dependencies
+    krb5-workstation \
+    # development dependencies
+    krb5-devel \
+  # clean up
+  && dnf clean all
+
+# Install the Kerberos configuration
+COPY ./s2i/config/krb5.conf /etc
+
+USER default
+
 # rename thoth assemble and run scripts
 RUN mv /opt/app-root/builder/assemble /opt/app-root/builder/assemble.original
 RUN mv /opt/app-root/builder/run /opt/app-root/builder/run.original
