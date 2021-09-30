@@ -25,3 +25,11 @@ overlays:
       registry-org: thoth-station
       registry-project: s2i-elyra-custom-notebook
       registry-secret: thoth-station-thoth-pusher-secret
+
+  - name: python38-internal
+    build:
+      build-stratergy: Dockerfile
+      registry: quay.io
+      registry-org: thoth-station
+      registry-project: s2i-custom-py38-internal-notebook
+      registry-secret: thoth-station-thoth-pusher-secret

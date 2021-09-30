@@ -1,5 +1,5 @@
 # s2i-custom-py38-notebook
-FROM quay.io/thoth-station/s2i-minimal-py38-notebook:v0.1.1
+FROM quay.io/thoth-station/s2i-minimal-py38-notebook:v0.1.2
 MAINTAINER Anand Sanmukhani <asanmukh@redhat.com>
 LABEL io.k8s.description="Custom JupyterHub Notebook Builder Image" \
       io.openshift.s2i.scripts-url=image:///opt/app-root/builder \
@@ -13,11 +13,11 @@ ENV \
 
 USER root
 
-# Trust the Red Hat IT Root CA 
+# Trust the Red Hat IT Root CA
 RUN curl -o /etc/pki/ca-trust/source/anchors/RH-IT-Root-CA.crt --fail -L \
          https://password.corp.redhat.com/RH-IT-Root-CA.crt \
  && update-ca-trust extract
- 
+
 RUN dnf install -y \
     # runtime dependencies
     krb5-workstation \

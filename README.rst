@@ -22,6 +22,12 @@ Python 3.8 based custom image `s2i-custom-py38-notebook <https://quay.io/reposit
   :target: https://quay.io/repository/thoth-station/s2i-custom-py38-notebook?tab=tags
   :alt: Quay - Build
 
+Python 3.8 based custom image for Red Hat internal use `s2i-custom-py38-internal-notebook <https://quay.io/repository/thoth-station/s2i-custom-py38-internal-notebook?tab=tags>`_
+
+  .. image:: https://quay.io/repository/thoth-station/s2i-custom-py38-internal-notebook/status
+    :target: https://quay.io/repository/thoth-station/s2i-custom-py38-internal-notebook?tab=tags
+    :alt: Quay - Build
+
 Elyra based custom image `s2i-elyra-custom-notebook <https://quay.io/repository/thoth-station/s2i-elyra-custom-notebook?tab=tags>`_
 
 .. image:: https://quay.io/repository/thoth-station/s2i-elyra-custom-notebook/status
@@ -168,6 +174,10 @@ Example for building python3.6 based custom base image:
 -  Build python38 from the **overlay/python38**
 
 ``bash   podman build -t s2i-custom-py38-notebook -f overlays/python38/Dockerfile .``
+
+-  Build python38 from the **overlay/python38-internal**
+
+``bash   podman build -t s2i-custom-py38-internal-notebook -f overlays/python38-internal/Dockerfile .``
 
 -  Build elyra-custom from the **overlay/elyra**
 
