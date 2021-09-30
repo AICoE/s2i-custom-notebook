@@ -1,4 +1,10 @@
 
+## Release 0.4.0 (2021-09-30T06:27:56)
+### Features
+* Patch the pre-commit issues
+* Update custom image with internal python38 setup
+* Support Kerberos authentication (#56)
+
 ## Release 0.3.3 (2021-09-01T18:58:12)
 ### Improvements
 * :arrow_up: upgrade the base image to have jupyterlab-requirements upgrade
