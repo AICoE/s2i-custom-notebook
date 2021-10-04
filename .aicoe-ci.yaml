@@ -9,6 +9,7 @@ overlays:
       registry-org: thoth-station
       registry-project: s2i-custom-notebook
       registry-secret: thoth-station-thoth-pusher-secret
+      custom-tag: latest
 
   - name: python38
     build:
@@ -17,6 +18,7 @@ overlays:
       registry-org: thoth-station
       registry-project: s2i-custom-py38-notebook
       registry-secret: thoth-station-thoth-pusher-secret
+      custom-tag: latest
 
   - name: elyra
     build:
@@ -25,11 +27,4 @@ overlays:
       registry-org: thoth-station
       registry-project: s2i-elyra-custom-notebook
       registry-secret: thoth-station-thoth-pusher-secret
-
-  - name: python38-internal
-    build:
-      build-stratergy: Dockerfile
-      registry: quay.io
-      registry-org: thoth-station
-      registry-project: s2i-custom-py38-internal-notebook
-      registry-secret: thoth-station-thoth-pusher-secret
+      custom-tag: latest
