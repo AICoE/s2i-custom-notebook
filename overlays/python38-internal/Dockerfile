@@ -27,7 +27,7 @@ RUN dnf install -y \
   && dnf clean all
 
 # Install the Kerberos configuration
-COPY ./s2i/config/krb5.conf /etc
+COPY s2i/config/krb5.conf /etc
 
 USER default
 
