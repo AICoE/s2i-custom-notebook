@@ -1,4 +1,9 @@
 
+## Release 0.4.1 (2021-10-04T05:00:34)
+### Features
+* fix: patch the path of the s2i dir and readme
+* fix: dont build and push the internal image to quay
+
 ## Release 0.4.0 (2021-09-30T06:27:56)
 ### Features
 * Patch the pre-commit issues
