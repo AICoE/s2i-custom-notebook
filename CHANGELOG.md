@@ -1,4 +1,7 @@
 
+## Release 0.4.2 (2021-11-26T19:04:33)
+* update the base image to latest version
+
 ## Release 0.4.1 (2021-10-04T05:00:34)
 ### Features
 * fix: patch the path of the s2i dir and readme
