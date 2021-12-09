@@ -1,5 +1,5 @@
 # s2i-custom-py38-notebook
-FROM quay.io/thoth-station/s2i-minimal-py38-notebook:v0.1.2
+FROM quay.io/thoth-station/s2i-minimal-py38-notebook:v0.2.2
 MAINTAINER Anand Sanmukhani <asanmukh@redhat.com>
 LABEL io.k8s.description="Custom JupyterHub Notebook Builder Image" \
       io.openshift.s2i.scripts-url=image:///opt/app-root/builder \
