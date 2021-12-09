@@ -1,4 +1,7 @@
 
+## Release 0.4.3 (2021-12-09T07:05:56)
+* :boat: Upgrade the base images for the custom notebooks (#64)
+
 ## Release 0.4.2 (2021-11-26T19:04:33)
 * update the base image to latest version
 
