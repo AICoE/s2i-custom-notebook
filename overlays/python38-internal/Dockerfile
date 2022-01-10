@@ -6,6 +6,7 @@ LABEL io.k8s.description="Custom JupyterHub Notebook Builder Image" \
       io.s2i.scripts-url=image:///opt/app-root/builder
 
 ENV \
+    THAMOS_RUNTIME_ENVIRONMENT="" \
     # DEPRECATED: Use above LABEL instead, because this will be removed in future versions.
     STI_SCRIPTS_URL=image:///opt/app-root/builder \
     # Path to be used in other layers to place s2i scripts into
