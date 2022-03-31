@@ -1,4 +1,7 @@
 
+## Release 0.4.5 (2022-03-30T22:15:57)
+* 829ed0b Update the base image for the custom notebooks (#70)
+
 ## Release 0.4.4 (2022-01-10T19:55:09)
 * :fire: setting THAMOS_RUNTIME_ENVIRONMENT var for the proper use of custom notebook (#67)
 
