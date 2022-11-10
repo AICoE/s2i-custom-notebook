@@ -1,4 +1,7 @@
 
+## Release 0.4.6 (2022-11-10T15:55:00)
+* a3de007 Update krb5.conf to match IT recommendations (#74)
+
 ## Release 0.4.5 (2022-03-30T22:15:57)
 * 829ed0b Update the base image for the custom notebooks (#70)
 
