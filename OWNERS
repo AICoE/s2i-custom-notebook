@@ -1,9 +1,15 @@
 # See the OWNERS docs at https://go.k8s.io/owners
 
 approvers:
-  - 4n4nd
-  - harshad16
-reviewers:
-  - tumido
-  - pacospace
   - durandom
+  - goern
+  - Gregory-Pereira
+  - harshad16
+  - sesheta
+
+reviewers:
+  - Gregory-Pereira
+  - harshad16
+
+emeritus_approvers:
+  - 4n4nd # june,2022

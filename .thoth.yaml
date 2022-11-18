@@ -35,9 +35,6 @@ managers:
   - name: info
   - name: version
     configuration:
-      maintainers:
-        - 4n4nd
-        - harshad16
       assignees:
         - sesheta
       labels: [bot]
