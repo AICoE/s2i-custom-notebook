@@ -1,0 +1,20 @@
+# Required
+THAMOS_RUNTIME_ENVIRONMENT=
+GIT_REPO_NAME=<your-repo-name>
+
+# Optional
+
+# Docs: https://github.com/thoth-station/s2i-thoth#configuration-options
+# THOTH_ADVISE=
+# THOTH_ERROR_FALLBACK=
+# THOTH_DRY_RUN=
+# THAMOS_DEBUG=
+# THAMOS_VERBOSE=
+# THOTH_PROVENANCE_CHECK=
+
+# Git based info.
+# GIT_TAG=""
+# GIT_TAG_AUTHOR=""
+# GIT_TAG_COMMIT_SHA=""
+# GIT_REPO_URL=""
+# GIT_REPO_DESC=""

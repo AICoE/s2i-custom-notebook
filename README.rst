@@ -4,32 +4,42 @@ s2i-custom-notebook
 Image Template to build custom notebook images for JupyterHub.
 
 .. image:: https://img.shields.io/github/v/tag/AICoE/s2i-custom-notebook?style=plastic
-  :target: https://github.com/AICoE/s2i-custom-notebook/releases
+  :target: https://github.com/AICoE/s2i-custom-notebook/tags
   :alt: GitHub tag (latest by date)
 
 List of available custom images
 -------------------------------
 
-Python 3.6 based custom image `s2i-custom-notebook <https://quay.io/repository/thoth-station/s2i-custom-notebook?tab=tags>`_
-
-.. image:: https://quay.io/repository/thoth-station/s2i-custom-notebook/status
+.. |s2i-custom py3.6 on Quay| image:: https://quay.io/repository/thoth-station/s2i-custom-notebook/status
   :target: https://quay.io/repository/thoth-station/s2i-custom-notebook?tab=tags
-  :alt: Quay - Build
+  :alt: s2i-custom py3.6 on Quay
 
-Python 3.8 based custom image `s2i-custom-py38-notebook <https://quay.io/repository/thoth-station/s2i-custom-py38-notebook?tab=tags>`_
-
-.. image:: https://quay.io/repository/thoth-station/s2i-custom-py38-notebook/status
+.. |s2i-custom py3.8 on Quay| image:: https://quay.io/repository/thoth-station/s2i-custom-py38-notebook/status
   :target: https://quay.io/repository/thoth-station/s2i-custom-py38-notebook?tab=tags
-  :alt: Quay - Build
+  :alt: s2i-custom py3.8 on Quay
 
-Elyra based custom image `s2i-elyra-custom-notebook <https://quay.io/repository/thoth-station/s2i-elyra-custom-notebook?tab=tags>`_
-
-.. image:: https://quay.io/repository/thoth-station/s2i-elyra-custom-notebook/status
+.. |s2i-custom elyra-py3.8 on Quay| image:: https://quay.io/repository/thoth-station/s2i-elyra-custom-notebook/status
   :target: https://quay.io/repository/thoth-station/s2i-elyra-custom-notebook?tab=tags
-  :alt: Quay - Build
+  :alt: s2i-custom elyra py3.8 on Quay
 
-Python 3.8 based custom image for Red Hat internal use: s2i-custom-py38-internal-notebook
-``docker-registry.upshift.redhat.com/aicoe-notebooks/s2i-custom-py38-internal-notebook:stable``
+.. |s2i-custom py3.8 Red Hat internal on Quay| image:: https://quay.io/repository/thoth-station/s2i-custom-py38-internal-notebook/status
+  :target: https://quay.io/repository/thoth-station/s2i-custom-py38-internal-notebook?tab=tags
+  :alt: s2i-custom py3.8 Red Hat internal on Quay
+
+.. list-table:: s2i Thoth Images
+   :widths: 40 30
+   :header-rows: 1
+
+   * - Image
+     - Status
+   * - `s2i-custom py3.6 <https://quay.io/repository/thoth-station/s2i-custom-notebook?tab=tags>`_
+     - |s2i-custom py3.6 on Quay|
+   * - `s2i-custom py3.8 <https://quay.io/repository/thoth-station/s2i-custom-py38-notebook?tab=tags>`_
+     - |s2i-custom py3.8 on Quay|
+   * - `s2i-custom elyra-py3.8 <https://quay.io/repository/thoth-station/s2i-elyra-custom-notebook?tab=tags>`_
+     - |s2i-custom elyra-py3.8 on Quay|
+   * - `s2i-custom py3.8 Red Hat internal <https://quay.io/repository/thoth-station/s2i-custom-py38-internal-notebook?tab=tags>`_
+     - |s2i-custom py3.8 Red Hat internal on Quay|
 
 Usage
 =====
@@ -71,8 +81,9 @@ Prerequisites
 Build
 ^^^^^
 
-You can build the image locally using s2i, by executing the following
-command in the root of your repository.
+You can build the image locally using s2i,
+some `environment variables <docs/env>`_ are required you can provide them via *--environment-file=* `docs/env <docs/env>`_
+or explicit each using ``--env``, by executing the following command in the root of your repository.
 
 ::
 
@@ -166,16 +177,16 @@ Example for building python3.6 based custom base image:
 
 -  Build python36 from the **overlay/python36**
 
-`` podman build -t s2i-custom-notebook -f overlays/python36/Dockerfile .``
+``podman build -t s2i-custom-notebook -f overlays/python36/Dockerfile .``
 
 -  Build python38 from the **overlay/python38**
 
-`` podman build -t s2i-custom-py38-notebook -f overlays/python38/Dockerfile .``
+``podman build -t s2i-custom-py38-notebook -f overlays/python38/Dockerfile .``
 
 -  Build python38 from the **overlay/python38-internal**
 
-`` podman build -t s2i-custom-py38-internal-notebook -f overlays/python38-internal/Dockerfile .``
+``podman build -t s2i-custom-py38-internal-notebook -f overlays/python38-internal/Dockerfile .``
 
 -  Build elyra-custom from the **overlay/elyra**
 
-`` podman build -t s2i-elyra-custom-notebook -f overlays/elyra/Dockerfile .``
+``podman build -t s2i-elyra-custom-notebook -f overlays/elyra/Dockerfile .``
