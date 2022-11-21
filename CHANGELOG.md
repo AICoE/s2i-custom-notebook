@@ -1,3 +1,7 @@
+## Release 0.4.7 (2022-11-21T13:44:00)
+* 018096dc Updated Readme with details about required env vars (#81)
+* 782201b6 :arrow_up: Upgrade the base image minimal v0.5.1 and elyra v0.1.5 (#80)
+* de6825b8 :recycle: HouseKeeping: Updated pre-commit and OWNERS (#79)
 
 ## Release 0.4.6 (2022-11-10T15:55:00)
 * a3de007 Update krb5.conf to match IT recommendations (#74)
